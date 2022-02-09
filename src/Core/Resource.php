@@ -1,14 +1,14 @@
 <?php
 
-namespace WebMaster\PagHiper\Core;
+namespace KevinEduardo\PagHiper\Core;
 
-use WebMaster\PagHiper\PagHiper;
+use KevinEduardo\PagHiper\PagHiper;
 
 class Resource
 {
 
     /**
-     * @var \WebMaster\PagHiper\PagHiper;
+     * @var \KevinEduardo\PagHiper\PagHiper;
      */
     protected $paghiper;
 

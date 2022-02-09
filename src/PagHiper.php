@@ -1,11 +1,11 @@
 <?php
 
-namespace WebMaster\PagHiper;
+namespace KevinEduardo\PagHiper;
 
-use WebMaster\PagHiper\Core\Payment\Billet;
-use WebMaster\PagHiper\Core\Payment\Notification;
-use WebMaster\PagHiper\Core\Bank\Banking;
-use WebMaster\PagHiper\Core\Pix\Pix;
+use KevinEduardo\PagHiper\Core\Payment\Billet;
+use KevinEduardo\PagHiper\Core\Payment\Notification;
+use KevinEduardo\PagHiper\Core\Bank\Banking;
+use KevinEduardo\PagHiper\Core\Pix\Pix;
 use GuzzleHttp\Client;
 use Exception;
 
@@ -13,17 +13,17 @@ class PagHiper
 {
 
     /**
-     * @var  WebMaster\PagHiper\Core\Payment\Billet;
+     * @var  KevinEduardo\PagHiper\Core\Payment\Billet;
      */
     private $billet;
 
     /**
-     * @var WebMaster\PagHiper\Core\Payment\Notification;
+     * @var KevinEduardo\PagHiper\Core\Payment\Notification;
      */
     private $notification;
 
     /**
-     * @var WebMaster\PagHiper\Core\Bank\Banking;
+     * @var KevinEduardo\PagHiper\Core\Bank\Banking;
      */
     private $banking;
 
@@ -102,7 +102,7 @@ class PagHiper
     }
 
     /**
-     * @var WebMaster\PagHiper\Core\Payment\Billet;
+     * @var KevinEduardo\PagHiper\Core\Payment\Billet;
      */
     public function billet()
     {
@@ -110,7 +110,7 @@ class PagHiper
     }
 
     /**
-     * @var WebMaster\PagHiper\Core\Payment\Notification;
+     * @var KevinEduardo\PagHiper\Core\Payment\Notification;
      */
     public function notification()
     {
@@ -118,7 +118,7 @@ class PagHiper
     }
 
     /**
-     * @var WebMaster\PagHiper\Core\Bank\Banking;
+     * @var KevinEduardo\PagHiper\Core\Bank\Banking;
      */
     public function banking()
     {

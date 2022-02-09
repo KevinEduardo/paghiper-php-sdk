@@ -1,9 +1,9 @@
 <?php
 
-namespace WebMaster\PagHiper\Core\Payment;
+namespace KevinEduardo\PagHiper\Core\Payment;
 
-use WebMaster\PagHiper\Core\Exceptions\PagHiperException;
-use WebMaster\PagHiper\Core\Resource;
+use KevinEduardo\PagHiper\Core\Exceptions\PagHiperException;
+use KevinEduardo\PagHiper\Core\Resource;
 
 class Notification extends Resource
 {

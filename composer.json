@@ -1,5 +1,5 @@
 {
-    "name": "webmasterdro/paghiper-php-sdk",
+    "name": "KevinEduardo/paghiper-php-sdk",
     "description": "Biblioteca de integração PHP PagHiper",
     "keywords": [
         "paghiper"
@@ -7,8 +7,8 @@
     "license": "MIT",
     "authors": [
         {
-            "name": "Pedro Lima",
-            "email": "pedro-octavio@hotmail.com"
+            "name": "Kevin Souza",
+            "email": "kevimedu@gmail.com"
         }
     ],
     "require": {
@@ -17,7 +17,7 @@
     },
     "autoload": {
         "psr-4": {
-            "WebMaster\\PagHiper\\": "src/"
+            "KevinEduardo\\PagHiper\\": "src/"
         }
     }
 }

@@ -1,37 +1,29 @@
-# Biblioteca de integração PagHiper para PHP
+# Biblioteca de integração PagHiper para PHP - Atualizada 2022 - Compatível com Laravel 8
 
-[![StyleCI](https://github.styleci.io/repos/150681419/shield?branch=master)](https://github.styleci.io/repos/150681419)
-[![Maintainability](https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/maintainability)](https://codeclimate.com/github/webmasterdro/paghiper-php-sdk/maintainability)
+## Autor do repositório original: Pedro Lima (@webmasterdro)
+[Link do repositório original](https://github.com/webmasterdro/paghiper-php-sdk)
 
 ## Descrição
 
 Utilizando essa biblioteca você pode integrar o PagHiper no seu sistema e utilizar os recursos que o PagHiper fornece em sua API, deixando seu código mais legível e manutenível.
 
-**Esta biblioteca tem suporte aos seguintes recursos:**
-- [Emissão de boleto](https://dev.paghiper.com/reference#gerar-boleto)
-- [Cancelamento de boleto](https://dev.paghiper.com/reference#boleto)
-- [Consultar status do boleto](https://dev.paghiper.com/reference#status-do-boleto)
+**Esta biblioteca tem suporte testado aos seguintes recursos: (possui vários outros, mas não testei e nem mantenho)**
 - [Receber notificações automáticas (Retorno Automático)](https://dev.paghiper.com/reference#qq)
-- [Realizar saques para conta bancária](https://dev.paghiper.com/reference#testinput)
-- [Listar contas bancárias](https://dev.paghiper.com/reference#lista-contas-banc%C3%A1rias-para-saque-via-api)
-- [Listar transações](https://dev.paghiper.com/reference#listar-transa%C3%A7%C3%B5es-via-api-1)
-- [Múltiplos boletos](https://dev.paghiper.com/reference#multiplos-boletos-unico-pdf)
 - [Pix](https://dev.paghiper.com/reference#emiss%C3%A3o-de-pix-paghiper)
 
 ## Instalação
 
 ### Compatibilidade
 
- Versão | webmasterdro/paghiper-php-sdk | PHP | guzzlehttp/guzzle
+ Versão | KevinEduardo/paghiper-php-sdk | PHP | guzzlehttp/guzzle
 :---------|:----------|:----------|:----------
- **3.x**  | `composer require webmasterdro/paghiper-php-sdk:^3.0` | PHP >= 7.2 | Guzzle >= 7
- 2.x  | `composer require webmasterdro/paghiper-php-sdk:^2.0` | PHP >= 5.6 | Guzzle >= 6.3.x < 7.0.0
+ **latest**  | `composer require KevinEduardo/paghiper-php-sdk` | PHP >= 7.2 | Guzzle >= 7
 
 
 Execute o comando
 
 ```php
-composer require webmasterdro/paghiper-php-sdk:^2.0
+composer require KevinEduardo/paghiper-php-sdk
 ```
 
 ## Utilizando
@@ -44,9 +36,21 @@ Antes de utilizar, obtenha suas credenciais (`apiKey` e `token`) em [https://www
 
 ```php
 $paghiper = new PagHiper('api_key', 'token', 'píx');
-$paghiper->pix()->create([]);
-$paghiper->pix()->status('transaction_id');
-$paghiper->pix()->cancel('transaction_id');
+$paghiper->pix()->create([
+    'order_id' => 'ABC-456-789',
+    'payer_name' => 'Pedro Lima',
+    'payer_email' => 'comprador@email.com',
+    'payer_cpf_cnpj' => '1234567891011', // CPF Inválido - vai gerar um erro, portanto altere para um válido
+    'days_due_date' => '3',
+    'items' => [[
+        'description' => 'Teste',
+        'quantity' => 1,
+        'item_id' => 'e24fc781-f543-4591-a51c-dde972e8e0af',
+        'price_cents' => '1000'
+    ]]
+]);
+$paghiper->pix()->status($transaction_id);
+$paghiper->pix()->cancel($transaction_id);
 $paghiper->pix()->notification($_POST['notification_id'], $_POST['idTransacao']);
 ```
 
@@ -55,7 +59,7 @@ $paghiper->pix()->notification($_POST['notification_id'], $_POST['idTransacao'])
 **Para emitir um boleto você pode fazer da seguinte maneira:**
 
 ```php
-use WebMaster\PagHiper\PagHiper;
+use KevinEduardo\PagHiper\PagHiper;
 
 $paghiper = new PagHiper('api_key', 'token');
 $transaction = $paghiper->billet()->create([

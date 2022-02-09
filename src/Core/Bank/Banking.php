@@ -1,9 +1,9 @@
 <?php
 
-namespace WebMaster\PagHiper\Core\Bank;
+namespace KevinEduardo\PagHiper\Core\Bank;
 
-use WebMaster\PagHiper\Core\Exceptions\PagHiperException;
-use WebMaster\PagHiper\Core\Resource;
+use KevinEduardo\PagHiper\Core\Exceptions\PagHiperException;
+use KevinEduardo\PagHiper\Core\Resource;
 
 class Banking extends Resource
 {

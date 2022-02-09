@@ -1,9 +1,9 @@
 <?php
 
-namespace WebMaster\PagHiper\Core\Pix;
+namespace KevinEduardo\PagHiper\Core\Pix;
 
-use WebMaster\PagHiper\Core\Resource;
-use WebMaster\PagHiper\Core\Exceptions\PagHiperException;
+use KevinEduardo\PagHiper\Core\Resource;
+use KevinEduardo\PagHiper\Core\Exceptions\PagHiperException;
 
 class Pix extends Resource
 {
@@ -21,7 +21,7 @@ class Pix extends Resource
         );
 
         if ($createTransaction['pix_create_request']['result'] === 'reject') {
-            throw new PagHiperException($createTransaction['response_message'], 400);
+            throw new PagHiperException($createTransaction['pix_create_request']['response_message'], 400);
         }
 
         return $createTransaction;
@@ -35,10 +35,10 @@ class Pix extends Resource
                 'transaction_id' => $transaction_id,
                 'status' => 'canceled'
             ]
-        )['cancellation_request'];
+        );
 
-        if ($cancelTransaction['pix_create_request']['result'] === 'reject') {
-            throw new PagHiperException($cancelTransaction['response_message'], 400);
+        if ($cancelTransaction['cancellation_request']['result'] === 'reject') {
+            throw new PagHiperException($cancelTransaction['cancellation_request']['response_message'], 400);
         }
 
         return $cancelTransaction;
@@ -51,10 +51,10 @@ class Pix extends Resource
             [
                 'transaction_id' => $transaction_id,
             ]
-        )['status_request'];
+        );
 
-        if ($transactionStatus['pix_create_request']['result'] === 'reject') {
-            throw new PagHiperException($transactionStatus['response_message'], 400);
+        if ($transactionStatus['status_request']['result'] === 'reject') {
+            throw new PagHiperException($transactionStatus['status_request']['response_message'], 400);
         }
 
         return $transactionStatus;
@@ -73,10 +73,10 @@ class Pix extends Resource
                 'notification_id' => $notificationId,
                 'transaction_id' => $transactionId
             ]
-        )['status_request'];
+        );
 
-        if ($paymentNotification['pix_create_request']['result'] === 'reject') {
-            throw new PagHiperException($paymentNotification['response_message'], 400);
+        if ($paymentNotification['status_request']['result'] === 'reject') {
+            throw new PagHiperException($paymentNotification['status_request']['response_message'], 400);
         }
 
         return $paymentNotification;
