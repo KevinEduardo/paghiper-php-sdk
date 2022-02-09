@@ -13,6 +13,9 @@ Utilizando essa biblioteca você pode integrar o PagHiper no seu sistema e utili
 
 ## Instalação
 
+Para usar em seu projeto é necessário alterar o seu composer.json da seguinte forma:
+![ComposerJSON](https://i.imgur.com/AZ7W7Fk.png)
+
 ### Compatibilidade
 
  Versão | KevinEduardo/paghiper-php-sdk | PHP | guzzlehttp/guzzle
