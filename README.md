@@ -38,7 +38,7 @@ Antes de utilizar, obtenha suas credenciais (`apiKey` e `token`) em [https://www
 **Para utilizar a nova modalidade de pagamento (PIX)** você só precisa fazer isto:
 
 ```php
-$paghiper = new PagHiper('api_key', 'token', 'píx');
+$paghiper = new PagHiper('api_key', 'token', 'pix');
 $paghiper->pix()->create([
     'order_id' => 'ABC-456-789',
     'payer_name' => 'Pedro Lima',
