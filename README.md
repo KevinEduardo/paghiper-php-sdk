@@ -20,14 +20,8 @@ Para usar em seu projeto é necessário alterar o seu composer.json da seguinte 
 
  Versão | KevinEduardo/paghiper-php-sdk | PHP | guzzlehttp/guzzle
 :---------|:----------|:----------|:----------
- **latest**  | `composer require KevinEduardo/paghiper-php-sdk` | PHP >= 7.2 | Guzzle >= 7
+ **latest**  | `KevinEduardo/paghiper-php-sdk` | PHP >= 7.2 | Guzzle >= 7
 
-
-Execute o comando
-
-```php
-composer require KevinEduardo/paghiper-php-sdk
-```
 
 ## Utilizando
 
