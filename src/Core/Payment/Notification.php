@@ -22,10 +22,10 @@ class Notification extends Resource
                 'notification_id' => $notificationId,
                 'transaction_id' => $transactionId
             ]
-        )['status_request'];
+        );
 
-        if ($paymentNotification['result'] === 'reject') {
-            throw new PagHiperException($paymentNotification['response_message'], 400);
+        if ($paymentNotification['status_request']['result'] === 'reject') {
+            throw new PagHiperException($paymentNotification['status_request']['response_message'], 400);
         }
 
         return $paymentNotification;
